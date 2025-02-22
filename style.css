@@ -56,3 +56,16 @@ a#topupButton:hover {
     font-weight: bold;
     font-size: 1.3em; /* Meningkatkan ukuran font result */
 }
+body {
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('background.jpg'); /* Ganti dengan nama file foto Anda */
+    background-size: cover; /* Mengatur ukuran background agar menutupi seluruh layar */
+    background-repeat: no-repeat; /* Mencegah pengulangan background */
+}
+
+/* ... (CSS lainnya tetap sama) ... */
