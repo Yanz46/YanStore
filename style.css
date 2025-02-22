@@ -1,50 +1,50 @@
 body {
     font-family: sans-serif;
-    display: flex; /* Menggunakan flexbox untuk menengahkan elemen */
-    justify-content: center; /* Menengahkan horizontal */
-    align-items: center; /* Menengahkan vertikal */
-    height: 100vh; /* Mengatur tinggi body menjadi 100% viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
     background-color: #f4f4f4;
 }
 
 .container {
     text-align: center;
-    padding: 30px; /* Menambah padding untuk memperbesar container */
-    border: 1px solid #ddd;
-    border-radius: 10px; /* Memperbesar border radius */
+    padding: 40px; /* Meningkatkan padding */
+    border: 2px solid #ddd; /* Meningkatkan ketebalan border */
+    border-radius: 15px; /* Meningkatkan radius border */
     background-color: #fff;
-    width: 90%; /* Mengatur lebar container */
-    max-width: 500px; /* Batas lebar maksimum */
+    width: 95%; /* Meningkatkan lebar container */
+    max-width: 600px; /* Meningkatkan lebar maksimum container */
 }
 
 h1 {
-    font-size: 2em; /* Memperbesar ukuran judul */
-    margin-bottom: 20px;
+    font-size: 2.5em; /* Meningkatkan ukuran font judul */
+    margin-bottom: 30px; /* Meningkatkan margin bottom */
 }
 
 select, input[type="text"] {
     width: 100%;
-    padding: 15px; /* Memperbesar padding input dan select */
-    margin: 15px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 20px; /* Meningkatkan padding input dan select */
+    margin: 20px 0; /* Meningkatkan margin input dan select */
+    border: 2px solid #ccc; /* Meningkatkan ketebalan border */
+    border-radius: 8px; /* Meningkatkan radius border */
     box-sizing: border-box;
-    font-size: 1.1em; /* Memperbesar ukuran font */
+    font-size: 1.3em; /* Meningkatkan ukuran font input dan select */
 }
 
 a#topupButton {
     display: block;
-    padding: 15px 30px; /* Memperbesar padding tombol */
+    padding: 20px 40px; /* Meningkatkan padding tombol */
     background-color: #25D366;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px; /* Meningkatkan radius border tombol */
     cursor: pointer;
     text-decoration: none;
-    margin-top: 20px;
+    margin-top: 30px; /* Meningkatkan margin top tombol */
     text-align: center;
-    font-size: 1.2em; /* Memperbesar ukuran font tombol */
+    font-size: 1.4em; /* Meningkatkan ukuran font tombol */
 }
 
 a#topupButton:hover {
@@ -52,7 +52,7 @@ a#topupButton:hover {
 }
 
 #result {
-    margin-top: 25px;
+    margin-top: 30px; /* Meningkatkan margin top result */
     font-weight: bold;
-    font-size: 1.1em;
+    font-size: 1.3em; /* Meningkatkan ukuran font result */
 }
