@@ -8,7 +8,7 @@ function updateWhatsappLink() {
     if (selectedAmount && userId) {
         const message = `Top-Up Free Fire - ID: ${userId} - ${selectedAmount} Diamonds`;
         const encodedMessage = encodeURIComponent(message);
-        const whatsappLink = `https://6282229795661?text=${encodedMessage}`;
+        const whatsappLink = `https://wa.me/6283191658203?text=${encodedMessage}`;
         topupButton.href = whatsappLink;
     } else {
         topupButton.href = "#"; // Nonaktifkan tautan jika ID atau jumlah diamond kosong
