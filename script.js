@@ -6,7 +6,7 @@ function updateWhatsappLink() {
     const selectedAmount = diamondAmountSelect.value;
     const userId = userIdInput.value;
     if (selectedAmount && userId) {
-        const message = `Top-Up Free Fire - ID: ${userId} - ${selectedAmount} Diamonds`;
+        const message = `top-up Free Fire - ID: ${userId} - ${selectedAmount} Diamonds`;
         const encodedMessage = encodeURIComponent(message);
         const whatsappLink = `https://wa.me/6283191658203?text=${encodedMessage}`;
         topupButton.href = whatsappLink;
