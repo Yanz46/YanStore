@@ -1,40 +1,50 @@
 body {
     font-family: sans-serif;
-    display: block; /* Mengubah flex menjadi block */
-    margin: 20px auto; /* Mengatur margin otomatis untuk tengah halaman */
+    display: flex; /* Menggunakan flexbox untuk menengahkan elemen */
+    justify-content: center; /* Menengahkan horizontal */
+    align-items: center; /* Menengahkan vertikal */
+    height: 100vh; /* Mengatur tinggi body menjadi 100% viewport height */
+    margin: 0;
     background-color: #f4f4f4;
-    width: 90%; /* Mengatur lebar halaman agar tidak terlalu lebar di perangkat mobile */
-    max-width: 400px; /* Batas lebar maksimum */
 }
 
 .container {
     text-align: center;
-    padding: 20px;
+    padding: 30px; /* Menambah padding untuk memperbesar container */
     border: 1px solid #ddd;
-    border-radius: 5px;
+    border-radius: 10px; /* Memperbesar border radius */
     background-color: #fff;
+    width: 90%; /* Mengatur lebar container */
+    max-width: 500px; /* Batas lebar maksimum */
+}
+
+h1 {
+    font-size: 2em; /* Memperbesar ukuran judul */
+    margin-bottom: 20px;
 }
 
 select, input[type="text"] {
-    width: 100%; /* Mengatur lebar input dan select menjadi 100% */
-    padding: 10px;
-    margin: 10px 0;
+    width: 100%;
+    padding: 15px; /* Memperbesar padding input dan select */
+    margin: 15px 0;
     border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box; /* Menambahkan box-sizing agar padding tidak menambah lebar */
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1.1em; /* Memperbesar ukuran font */
 }
 
 a#topupButton {
-    display: block; /* Mengubah display menjadi block agar tombol memenuhi lebar */
-    padding: 10px 20px;
+    display: block;
+    padding: 15px 30px; /* Memperbesar padding tombol */
     background-color: #25D366;
     color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
-    margin-top: 10px;
-    text-align: center; /* Mengatur teks tombol ke tengah */
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.2em; /* Memperbesar ukuran font tombol */
 }
 
 a#topupButton:hover {
@@ -42,6 +52,7 @@ a#topupButton:hover {
 }
 
 #result {
-    margin-top: 20px;
+    margin-top: 25px;
     font-weight: bold;
+    font-size: 1.1em;
 }
