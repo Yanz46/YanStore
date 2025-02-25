@@ -1,71 +1,99 @@
 body {
     font-family: sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
-    background-color: #f4f4f4;
+    padding: 0;
 }
 
 .container {
-    text-align: center;
-    padding: 40px; /* Meningkatkan padding */
-    border: 2px solid #ddd; /* Meningkatkan ketebalan border */
-    border-radius: 15px; /* Meningkatkan radius border */
-    background-color: #fff;
-    width: 95%; /* Meningkatkan lebar container */
-    max-width: 600px; /* Meningkatkan lebar maksimum container */
+    width: 80%;
+    margin: 0 auto;
 }
 
-h1 {
-    font-size: 2.5em; /* Meningkatkan ukuran font judul */
-    margin-bottom: 30px; /* Meningkatkan margin bottom */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
 }
 
-select, input[type="text"] {
-    width: 100%;
-    padding: 20px; /* Meningkatkan padding input dan select */
-    margin: 20px 0; /* Meningkatkan margin input dan select */
-    border: 2px solid #ccc; /* Meningkatkan ketebalan border */
-    border-radius: 8px; /* Meningkatkan radius border */
-    box-sizing: border-box;
-    font-size: 1.3em; /* Meningkatkan ukuran font input dan select */
-}
-
-a#topupButton {
-    display: block;
-    padding: 20px 40px; /* Meningkatkan padding tombol */
-    background-color: #25D366;
-    color: white;
-    border: none;
-    border-radius: 8px; /* Meningkatkan radius border tombol */
-    cursor: pointer;
-    text-decoration: none;
-    margin-top: 30px; /* Meningkatkan margin top tombol */
-    text-align: center;
-    font-size: 1.4em; /* Meningkatkan ukuran font tombol */
-}
-
-a#topupButton:hover {
-    background-color: #128C7E;
-}
-
-#result {
-    margin-top: 30px; /* Meningkatkan margin top result */
-    font-weight: bold;
-    font-size: 1.3em; /* Meningkatkan ukuran font result */
-}
-body {
-    font-family: sans-serif;
+header .container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-image: url('background.jpg'); /* Ganti dengan nama file foto Anda */
-    background-size: cover; /* Mengatur ukuran background agar menutupi seluruh layar */
-    background-repeat: no-repeat; /* Mencegah pengulangan background */
 }
 
-/* ... (CSS lainnya tetap sama) ... */
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav li {
+    margin-left: 20px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.hero {
+    background-image: url('hero-bg.jpg'); /* Ganti dengan gambar latar belakang */
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    padding: 100px 0;
+    color: #fff;
+}
+
+.hero h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.products {
+    padding: 50px 0;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-item {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.price {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
