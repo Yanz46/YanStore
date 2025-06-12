@@ -3,59 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Suntik Sosmed</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="https://img.icons8.com/color/48/000000/whatsapp--v1.png" type="image/png">
+    <title>KingStore</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            margin: 20px;
+            overflow: hidden;
+        }
+        header {
+            background-color: #6a1b9a; /* Warna ungu gelap */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .form-section {
+            padding: 25px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: calc(100% - 20px);
+            padding: 12px 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus {
+            border-color: #6a1b9a;
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(106, 27, 154, 0.2);
+        }
+        .min-max-info {
+            font-size: 13px;
+            color: #777;
+            margin-top: 5px;
+        }
+        .submit-button {
+            width: 100%;
+            padding: 15px;
+            background-color: #8e24aa; /* Warna ungu sedang */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+            background-color: #7b1fa2; /* Warna ungu lebih gelap saat hover */
+        }
+        .new-member-info {
+            background-color: #f3e5f5; /* Ungu sangat muda */
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 12px;
+            color: #555;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .new-member-info h3 {
+            color: #6a1b9a;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Suntik Sosmed</h1>
-        <header class="header">
-            <input type="text" placeholder="Search" class="search-input">
+        <header>
+            KingStore
         </header>
-
-        <main class="main-content">
-            <div class="card">
-                <div class="form-group">
-                    <label for="category">Category</label>
-                    <select id="category" class="form-control">
-                        <option value="whatsapp">WHATSAPP</option>
-                        <option value="tiktok">TIKTOK</option>
-                        <option value="youtube">YOUTUBE</option>
-                        <option value="instagram">INSTAGRAM</option>
-                        <option value="facebook">FACEBOOK</option>
-                        <option value="telegram">TELEGRAM</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="service">Service</label>
-                    <select id="service" class="form-control">
-                        <option value="whatsapp-channel-members-real-max-1k">5952 - WhatsApp Channel Members ~ REAL ~ Max 1K ~...</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="link">Link</label>
-                    <input type="url" id="link" class="form-control" placeholder="https://">
-                </div>
-
-                <div class="form-group">
-                    <label for="quantity">Quantity</label>
-                    <input type="number" id="quantity" class="form-control" min="10" max="10000" value="10">
-                    <small class="min-max-info">Min: <span id="min-qty">10</span> - Max: <span id="max-qty">10 000</span></small>
-                </div>
-
-                <button class="submit-button" id="submitBtn">Submit</button>
+        <div class="form-section">
+            <div class="form-group">
+                <input type="text" placeholder="Search" disabled>
             </div>
-        </main>
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <select id="category">
+                    <option value="">Pilih Kategori</option>
+                    <option value="Tiktok">TikTok</option>
+                    <option value="Instagram">Instagram</option>
+                    <option value="Facebook">Facebook</option>
+                    <option value="Youtube">YouTube</option>
+                    <option value="Whatsapp">WhatsApp</option>
+                    <option value="Telegram">Telegram</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="service">Service</label>
+                <select id="service">
+                    <option value="">Pilih Layanan</option>
+                    </select>
+            </div>
+
+            <div class="form-group">
+                <label for="link">Link</label>
+                <input type="text" id="link" placeholder="Masukkan Link">
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity</label>
+                <input type="number" id="quantity" min="10" max="10000" placeholder="Min: 10 - Max: 10000">
+                <div class="min-max-info">Min: 10 - Max: 10 000</div>
+            </div>
+
+            <button type="submit" class="submit-button" onclick="sendToWhatsApp()">Submit</button>
+        </div>
+
+        <div class="new-member-info">
+            <h3>New Member</h3>
+            <p>
+Selamat Datang di KingStore!
+Kami sangat senang Anda bergabung dengan keluarga besar KingStore. Di sini, Anda akan menemukan solusi terbaik untuk meningkatkan kehadiran media sosial Anda. Kami berkomitmen untuk menyediakan layanan yang cepat, aman, dan efektif. Mari kita mulai perjalanan Anda menuju kesuksesan digital bersama kami!
+</p>
+        </div>
     </div>
 
-    <div class="whatsapp-button">
-        <a href="https://wa.me/6282229795661" target="_blank"> <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
-        </a>
-    </div>
+    <a href="https://wa.me/6282229795661" target="_blank" class="whatsapp-float">
+        &#x2709; </a>
 
-    <script src="script.js"></script>
+    <script>
+        const categorySelect = document.getElementById('category');
+        const serviceSelect = document.getElementById('service');
+        const whatsappNumber = '6282229795661'; // Nomor WhatsApp Anda
+
+        const services = {
+            "Tiktok": [
+                "Tiktok Followers",
+                "Tiktok Views",
+                "Tiktok Like",
+                "Tiktok Comment",
+                "Tiktok Share"
+            ],
+            "Instagram": [
+                "Instagram Followers",
+                "Instagram Like",
+                "Instagram Views",
+                "Instagram Comment",
+                "Instagram Share"
+            ],
+            "Facebook": [
+                "Facebook Followers",
+                "Facebook Like",
+                "Facebook Views",
+                "Facebook Share",
+                "Facebook Comment"
+            ],
+            "Youtube": [
+                "Youtube Subscriber",
+                "Youtube Views Live",
+                "Youtube Views",
+                "Youtube Like",
+                "Youtube Comment"
+            ],
+            "Whatsapp": [
+                "Whatsapp Channel Member"
+            ],
+            "Telegram": [
+                "Telegram Channel Member"
+            ]
+        };
+
+        categorySelect.addEventListener('change', () => {
+            const selectedCategory = categorySelect.value;
+            serviceSelect.innerHTML = '<option value="">Pilih Layanan</option>'; // Clear existing options
+            if (selectedCategory && services[selectedCategory]) {
+                services[selectedCategory].forEach(service => {
+                    const option = document.createElement('option');
+                    option.value = service;
+                    option.textContent = service;
+                    serviceSelect.appendChild(option);
+                });
+            }
+        });
+
+        function sendToWhatsApp() {
+            const selectedCategory = categorySelect.value;
+            const selectedService = serviceSelect.value;
+            const link = document.getElementById('link').value;
+            const quantity = document.getElementById('quantity').value;
+
+            if (!selectedCategory || !selectedService || !link || !quantity) {
+                alert('Mohon lengkapi semua kolom sebelum submit.');
+                return;
+            }
+
+            const message = `Halo, saya ingin memesan layanan berikut:\n\n` +
+                            `Kategori: ${selectedCategory}\n` +
+                            `Layanan: ${selectedService}\n` +
+                            `Link: ${link}\n` +
+                            `Jumlah: ${quantity}\n\n` +
+                            `Terima kasih.`;
+
+            // Encode the message for URL
+            const encodedMessage = encodeURIComponent(message);
+
+            // Construct the WhatsApp URL
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // Open WhatsApp in a new tab/window
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
 </body>
 </html>
