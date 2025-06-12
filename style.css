@@ -1,206 +1,154 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+document.addEventListener('DOMContentLoaded', () => {
+    const categorySelect = document.getElementById('category');
+    const serviceSelect = document.getElementById('service');
+    const quantityInput = document.getElementById('quantity');
+    const minQtySpan = document.getElementById('min-qty');
+    const maxQtySpan = document.getElementById('max-qty');
+    const submitBtn = document.getElementById('submitBtn');
 
-:root {
-    --primary-color: #7B1FA2; /* Warna ungu utama */
-    --secondary-color: #6A1B9A; /* Ungu lebih gelap untuk hover/active */
-    --background-light: #f0f2f5;
-    --background-dark: #e0e2e5;
-    --card-background: #ffffff;
-    --text-color: #333;
-    --placeholder-color: #888;
-    --border-color: #ddd;
-    --input-bg: #f9f9f9;
-}
+    // Nomor WhatsApp yang akan menerima pesan
+    const whatsappNumber = '6282229795661'; // Format internasional tanpa '+' atau spasi
 
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+    // Dummy data untuk layanan (di dunia nyata ini akan dari API back-end)
+    const servicesData = {
+        whatsapp: [
+            { id: '5952', name: 'WhatsApp Channel Members ~ REAL ~ Max 1K ~...', min: 10, max: 1000 },
+            { id: '6001', name: 'WhatsApp Channel Members ~ BOT ~ Max 5K ~...', min: 50, max: 5000 },
+        ],
+        tiktok: [
+            { id: '101', name: 'TikTok Likes ~ Indo ~ Max 100K', min: 100, max: 100000 },
+            { id: '102', name: 'TikTok Followers ~ Global ~ Max 50K', min: 50, max: 50000 },
+            { id: '103', name: 'TikTok Views ~ Instant ~ Max 1M', min: 1000, max: 1000000 },
+            { id: '104', name: 'TikTok Comments ~ Custom ~ Max 500', min: 10, max: 500 },
+        ],
+        youtube: [
+            { id: '201', name: 'YouTube Subscribers ~ Real ~ Max 5K', min: 10, max: 5000 },
+            { id: '202', name: 'YouTube Views ~ High Retention ~ Max 100K', min: 500, max: 100000 },
+            { id: '203', name: 'YouTube Likes ~ Targeted ~ Max 10K', min: 20, max: 10000 },
+            { id: '204', name: 'YouTube Views Live ~ 30 Min ~ Max 500', min: 10, max: 500 },
+            { id: '205', name: 'YouTube Comments ~ Custom ~ Max 200', min: 5, max: 200 },
+        ],
+        instagram: [
+            { id: '301', name: 'Instagram Followers ~ Real ~ Max 20K', min: 50, max: 20000 },
+            { id: '302', name: 'Instagram Likes ~ Indo ~ Max 50K', min: 20, max: 50000 },
+            { id: '303', name: 'Instagram Views ~ Reel/Video ~ Max 1M', min: 1000, max: 1000000 },
+            { id: '304', name: 'Instagram Comments ~ Custom ~ Max 300', min: 10, max: 300 },
+        ],
+        facebook: [
+            { id: '401', name: 'Facebook Followers ~ Page ~ Max 10K', min: 50, max: 10000 },
+            { id: '402', name: 'Facebook Views ~ Video ~ Max 500K', min: 1000, max: 500000 },
+            { id: '403', name: 'Facebook Likes ~ Post ~ Max 20K', min: 50, max: 20000 },
+            { id: '404', name: 'Facebook Comments ~ Post ~ Max 100', min: 5, max: 100 },
+        ],
+        telegram: [
+            { id: '501', name: 'Telegram Members ~ Real ~ Max 5K', min: 50, max: 5000 },
+            { id: '502', name: 'Telegram Members ~ Bot ~ Max 10K', min: 100, max: 10000 },
+        ]
+    };
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--background-light);
-    color: var(--text-color);
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Mengatur ke atas */
-    min-height: 100vh;
-    padding: 20px;
-}
-
-.container {
-    width: 100%;
-    max-width: 400px; /* Lebar maksimal sesuai gambar */
-    background-color: var(--background-light);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.header {
-    background-color: var(--primary-color);
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.search-input {
-    width: 100%;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #fff;
-    font-size: 16px;
-    outline: none;
-    transition: background-color 0.3s ease;
-}
-
-.search-input::placeholder {
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.search-input:focus {
-    background-color: rgba(255, 255, 255, 0.3);
-}
-
-.main-content {
-    padding: 20px;
-}
-
-.card {
-    background-color: var(--card-background);
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    color: var(--text-color);
-}
-
-.form-control {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    font-size: 16px;
-    background-color: var(--input-bg);
-    color: var(--text-color);
-    appearance: none; /* Menghilangkan style default select */
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%23888' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 20px;
-}
-
-.form-control:focus {
-    border-color: var(--primary-color);
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(123, 31, 162, 0.2);
-}
-
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
-.min-max-info {
-    font-size: 13px;
-    color: var(--placeholder-color);
-    margin-top: 5px;
-    display: block;
-}
-
-.submit-button {
-    width: 100%;
-    padding: 15px;
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.submit-button:hover {
-    background-color: var(--secondary-color);
-}
-
-.new-member-info {
-    background-color: var(--card-background);
-    border-radius: 8px;
-    padding: 20px;
-    line-height: 1.6;
-    font-size: 14px;
-    color: var(--text-color);
-}
-
-.new-member-info h3 {
-    font-size: 18px;
-    margin-bottom: 15px;
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
-.new-member-info p {
-    margin-bottom: 10px;
-}
-
-.whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-.whatsapp-button img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: transform 0.2s ease-in-out;
-}
-
-.whatsapp-button img:hover {
-    transform: scale(1.1);
-}
-
-/* Responsive dasar */
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
+    function populateServices(category) {
+        serviceSelect.innerHTML = '';
+        const currentServices = servicesData[category] || [];
+        currentServices.forEach(service => {
+            const option = document.createElement('option');
+            option.value = service.id;
+            option.textContent = `${service.id} - ${service.name}`;
+            serviceSelect.appendChild(option);
+        });
+        updateQuantityRange();
     }
-    .container {
-        max-width: 100%;
+
+    function updateQuantityRange() {
+        const selectedServiceId = serviceSelect.value;
+        const selectedCategory = categorySelect.value;
+        const currentService = servicesData[selectedCategory]?.find(s => s.id === selectedServiceId);
+
+        if (currentService) {
+            // Kita tetap set min/max pada input, tapi bisa dengan range yang lebih lebar
+            // Ini untuk memanfaatkan validasi bawaan browser
+            quantityInput.min = 1; // Atur minimum global yang masuk akal
+            quantityInput.max = 1000000; // Atur maksimum global yang sangat tinggi
+
+            // Tampilkan rekomendasi spesifik layanan kepada pengguna
+            minQtySpan.textContent = currentService.min;
+            maxQtySpan.textContent = currentService.max.toLocaleString('id-ID');
+
+            let currentQuantity = parseInt(quantityInput.value);
+            // Sesuaikan nilai awal input jika di luar rekomendasi, tapi tidak wajib
+            if (isNaN(currentQuantity) || currentQuantity < currentService.min) {
+                quantityInput.value = currentService.min;
+            } else if (currentQuantity > currentService.max) {
+                // Jangan paksa value kembali ke max rekomendasi, biarkan user input lebih tinggi
+                // Tapi user akan diberi peringatan saat submit jika di luar rekomendasi
+            }
+        } else {
+            // Atur min/max default jika tidak ada layanan terpilih
+            quantityInput.min = 1;
+            quantityInput.max = 1000000;
+            minQtySpan.textContent = 1;
+            maxQtySpan.textContent = '1 000 000';
+            quantityInput.value = 10;
+        }
     }
-    .header {
-        border-radius: 0;
-    }
-    .card {
-        border-radius: 0;
-    }
-    .whatsapp-button {
-        bottom: 10px;
-        right: 10px;
-    }
-    .whatsapp-button img {
-        width: 45px;
-        height: 45px;
-    }
-}
+
+    // Event Listeners
+    categorySelect.addEventListener('change', () => {
+        populateServices(categorySelect.value);
+    });
+
+    serviceSelect.addEventListener('change', updateQuantityRange);
+    // Tidak perlu listener untuk quantityInput jika tujuannya adalah membiarkan user input bebas
+    // quantityInput.addEventListener('input', updateQuantityRange); // Komentari atau hapus baris ini
+
+    // Event Listener untuk tombol submit
+    submitBtn.addEventListener('click', () => {
+        const category = categorySelect.value;
+        const serviceId = serviceSelect.value;
+        const serviceName = serviceSelect.options[serviceSelect.selectedIndex].textContent;
+        const link = document.getElementById('link').value;
+        const quantity = parseInt(quantityInput.value); // Pastikan quantity adalah angka
+
+        // Dapatkan batas min/max yang sebenarnya dari data layanan
+        const selectedService = servicesData[category]?.find(s => s.id === serviceId);
+        const serviceMin = selectedService ? selectedService.min : 1;
+        const serviceMax = selectedService ? selectedService.max : 1000000; // Fallback jika tidak ditemukan
+
+        // Validasi yang lebih ketat sebelum mengirim ke WhatsApp
+        if (!link || link.trim() === '') {
+            alert('Mohon masukkan Link target.');
+            return;
+        }
+
+        if (isNaN(quantity) || quantity < 1) { // Pastikan quantity adalah angka positif
+            alert('Kuantitas harus berupa angka positif.');
+            return;
+        }
+
+        if (quantity < serviceMin || quantity > serviceMax) {
+            const confirmOverride = confirm(
+                `Kuantitas ${quantity} tidak sesuai dengan rekomendasi layanan ini (${serviceMin} - ${serviceMax.toLocaleString('id-ID')}).\n` +
+                `Apakah Anda yakin ingin melanjutkan dengan kuantitas ini?`
+            );
+            if (!confirmOverride) {
+                return; // Batalkan submit jika pengguna tidak yakin
+            }
+        }
+
+        // Buat pesan WhatsApp
+        const message = `Halo, saya ingin memesan layanan:\n\n` +
+                        `*Kategori*: ${category.toUpperCase()}\n` +
+                        `*Layanan*: ${serviceName}\n` +
+                        `*Link*: ${link}\n` +
+                        `*Jumlah*: ${quantity}\n\n` +
+                        `Mohon diproses. Terima kasih!`;
+
+        // Encode pesan agar aman untuk URL
+        const encodedMessage = encodeURIComponent(message);
+        
+        // Arahkan ke link WhatsApp dengan nomor Anda dan pesan pre-filled
+        window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+    });
+
+    // Initial load
+    populateServices(categorySelect.value);
+});
