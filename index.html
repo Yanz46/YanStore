@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KingStore</title>
+    <title>KingStore - Solusi Peningkatan Media Sosial</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -30,10 +30,18 @@
         header {
             background-color: #6a1b9a; /* Warna ungu gelap */
             color: white;
-            padding: 20px;
+            padding: 15px 20px;
             text-align: center;
             font-size: 24px;
-            font-weight: 600;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .header-logo {
+            height: 40px; /* Sesuaikan ukuran logo */
+            margin-right: 10px;
+            /* Jika logo Anda lingkaran/oval, atur border-radius: 50%; */
         }
         .form-section {
             padding: 25px;
@@ -66,10 +74,22 @@
             outline: none;
             box-shadow: 0 0 0 3px rgba(106, 27, 154, 0.2);
         }
+        input[disabled], select[disabled] {
+            background-color: #e9ecef;
+            cursor: not-allowed;
+        }
         .min-max-info {
             font-size: 13px;
             color: #777;
             margin-top: 5px;
+        }
+        .charge-info {
+            font-size: 16px;
+            font-weight: 600;
+            color: #28a745; /* Warna hijau untuk harga */
+            margin-top: 10px;
+            text-align: right;
+            padding-right: 10px;
         }
         .submit-button {
             width: 100%;
@@ -86,7 +106,23 @@
         .submit-button:hover {
             background-color: #7b1fa2; /* Warna ungu lebih gelap saat hover */
         }
-        .new-member-info {
+        .welcome-info {
+            background-color: #e3f2fd; /* Biru muda */
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 12px;
+            color: #333;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+        .welcome-info h3 {
+            color: #1976d2; /* Biru lebih gelap */
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        .tutorial-info {
             background-color: #f3e5f5; /* Ungu sangat muda */
             padding: 20px;
             margin-top: 20px;
@@ -95,11 +131,19 @@
             line-height: 1.6;
             font-size: 14px;
         }
-        .new-member-info h3 {
+        .tutorial-info h3 {
             color: #6a1b9a;
             margin-top: 0;
             margin-bottom: 10px;
             font-size: 18px;
+            font-weight: 700;
+        }
+        .tutorial-info ol {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+        .tutorial-info ol li {
+            margin-bottom: 8px;
         }
         .whatsapp-float {
             position: fixed;
@@ -123,19 +167,24 @@
 <body>
     <div class="container">
         <header>
-            Suntik Sosmed
+            
+            Suntik Sosmed 
         </header>
         <div class="form-section">
+
+            <div class="welcome-info">
+                <h3>Selamat Datang di KingStore!</h3>
+                <p>Kami sangat senang Anda bergabung dengan keluarga besar KingStore. Di sini, Anda akan menemukan solusi terbaik untuk meningkatkan kehadiran media sosial Anda. Kami berkomitmen untuk menyediakan layanan yang cepat, aman, dan efektif. Mari kita mulai perjalanan Anda menuju kesuksesan digital bersama kami!</p>
+            </div>
+
+            <div class="form-group" style="margin-top: 25px;">
+                <input type="text" placeholder="Search" disabled>
+            </div>
+
             <div class="form-group">
                 <label for="category">Category</label>
                 <select id="category">
                     <option value="">Pilih Kategori</option>
-                    <option value="Tiktok">TikTok</option>
-                    <option value="Instagram">Instagram</option>
-                    <option value="Facebook">Facebook</option>
-                    <option value="Youtube">YouTube</option>
-                    <option value="Whatsapp">WhatsApp</option>
-                    <option value="Telegram">Telegram</option>
                 </select>
             </div>
 
@@ -143,7 +192,7 @@
                 <label for="service">Service</label>
                 <select id="service">
                     <option value="">Pilih Layanan</option>
-                    </select>
+                </select>
             </div>
 
             <div class="form-group">
@@ -153,19 +202,29 @@
 
             <div class="form-group">
                 <label for="quantity">Quantity</label>
-                <input type="number" id="quantity" min="100" placeholder="1000">
+                <input type="number" id="quantity" min="10" max="10000" placeholder="1000">
                 <div class="min-max-info">Min: 100</div>
             </div>
 
-            <button type="submit" class="submit-button" onclick="sendToWhatsApp()">Submit</button>
-        </div>
+            <div class="form-group">
+                <div class="charge-info" id="chargeDisplay">Charge: Rp 0</div>
+            </div>
 
-        <div class="new-member-info">
-            <h3>New Member</h3>
-            <p>
-Selamat Datang di KingStore!
-Kami sangat senang Anda bergabung dengan keluarga besar KingStore. Di sini, Anda akan menemukan solusi terbaik untuk meningkatkan kehadiran media sosial Anda. Kami berkomitmen untuk menyediakan layanan yang cepat, aman, dan efektif. Mari kita mulai perjalanan Anda menuju kesuksesan digital bersama kami!
-</p>
+            <button type="submit" class="submit-button" onclick="sendToWhatsApp()">Submit</button>
+
+            <div class="tutorial-info">
+                <h3>Selamat Datang di KingStore!</h3>
+                <p>Siap meningkatkan performa media sosial Anda? Panduan ini akan mempermudah langkah pertama Anda!</p>
+                <p>Sebelum memulai, mohon luangkan waktu sejenak untuk membaca **Syarat & Ketentuan** kami. Ini penting untuk memahami proses pembelian, kebijakan garansi, dan cara kerja layanan kami secara optimal.</p>
+                <h4>Bagaimana Cara Membeli Layanan Kami?</h4>
+                <ol>
+                    <li>**Pilih Kategori & Layanan:** Jelajahi berbagai pilihan kami mulai dari TikTok, Instagram, hingga YouTube.</li>
+                    <li>**Masukkan Detail Pesanan:** Berikan tautan profil atau konten Anda di kolom "Link" dan tentukan jumlah yang Anda inginkan di "Quantity".</li>
+                    <li>**Konfirmasi & Submit:** Periksa kembali pesanan Anda dan klik tombol "Submit".</li>
+                </ol>
+                <p>Mudah, bukan? Mari kita mulai tingkatkan kehadiran digital Anda bersama KingStore!</p>
+            </div>
+
         </div>
     </div>
 
@@ -175,57 +234,121 @@ Kami sangat senang Anda bergabung dengan keluarga besar KingStore. Di sini, Anda
     <script>
         const categorySelect = document.getElementById('category');
         const serviceSelect = document.getElementById('service');
+        const quantityInput = document.getElementById('quantity');
+        const chargeDisplay = document.getElementById('chargeDisplay');
         const whatsappNumber = '6282229795661'; // Nomor WhatsApp Anda
 
-        const services = {
+        const allServicesData = {
             "Tiktok": [
-                "Tiktok Followers",
-                "Tiktok Views",
-                "Tiktok Like",
-                "Tiktok Comment",
-                "Tiktok Share"
+                { name: "Tiktok 100 Followers", base_qty: 100, price: 10000, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Tiktok 10000 Views", base_qty: 10000, price: 500, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Tiktok 100 Like", base_qty: 100, price: 300, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Tiktok Comment", base_qty: 1, price: 0, min: 0, max: 0, status: "Habis" }, // Price 0, min/max 0 for "Habis"
+                { name: "Tiktok 1000 Share", base_qty: 1000, price: 500, min: 10, max: 10000, status: "Tersedia" }
             ],
             "Instagram": [
-                "Instagram Followers",
-                "Instagram Like",
-                "Instagram Views",
-                "Instagram Comment",
-                "Instagram Share"
+                { name: "Instagram 100 Followers", base_qty: 100, price: 3000, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Instagram 100 Like", base_qty: 100, price: 1000, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Instagram 5000 Views", base_qty: 5000, price: 500, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Instagram Comment", base_qty: 1, price: 0, min: 0, max: 0, status: "Habis" },
+                { name: "Instagram 100 Share", base_qty: 100, price: 700, min: 10, max: 10000, status: "Tersedia" }
             ],
             "Facebook": [
-                "Facebook Followers",
-                "Facebook Like",
-                "Facebook Views",
-                "Facebook Share",
-                "Facebook Comment"
+                { name: "Facebook 100 Followers", base_qty: 100, price: 1500, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Facebook 100 Like", base_qty: 100, price: 1500, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Facebook 100 Views", base_qty: 100, price: 1000, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Facebook 100 Share", base_qty: 100, price: 4000, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Facebook Comment", base_qty: 1, price: 0, min: 0, max: 0, status: "Habis" }
             ],
             "Youtube": [
-                "Youtube Subscriber",
-                "Youtube Views Live",
-                "Youtube Views",
-                "Youtube Like",
-                "Youtube Comment"
+                { name: "Youtube 100 Subscriber", base_qty: 100, price: 8000, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Youtube 1000 Views Live", base_qty: 1000, price: 2500, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Youtube 100 Views", base_qty: 100, price: 1500, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Youtube 100 Like", base_qty: 100, price: 2000, min: 10, max: 10000, status: "Tersedia" },
+                { name: "Youtube Comment", base_qty: 1, price: 0, min: 0, max: 0, status: "Habis" }
             ],
             "Whatsapp": [
-                "Whatsapp Channel Member"
+                { name: "Whatsapp Channel 100 Member", base_qty: 100, price: 9000, min: 10, max: 10000, status: "Tersedia" }
             ],
             "Telegram": [
-                "Telegram Channel Member"
+                { name: "Telegram Channel 100 Member", base_qty: 100, price: 1500, min: 10, max: 10000, status: "Tersedia" }
             ]
         };
+
+        // Populate Categories initially
+        document.addEventListener('DOMContentLoaded', () => {
+            for (const category in allServicesData) {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                categorySelect.appendChild(option);
+            }
+        });
 
         categorySelect.addEventListener('change', () => {
             const selectedCategory = categorySelect.value;
             serviceSelect.innerHTML = '<option value="">Pilih Layanan</option>'; // Clear existing options
-            if (selectedCategory && services[selectedCategory]) {
-                services[selectedCategory].forEach(service => {
+            quantityInput.value = ''; // Clear quantity
+            quantityInput.min = 10;
+            quantityInput.max = 10000;
+            quantityInput.placeholder = 'Min: 10 - Max: 10000';
+            chargeDisplay.textContent = 'Charge: Rp 0'; // Reset charge
+
+            if (selectedCategory && allServicesData[selectedCategory]) {
+                allServicesData[selectedCategory].forEach(service => {
                     const option = document.createElement('option');
-                    option.value = service;
-                    option.textContent = service;
+                    option.value = service.name;
+                    option.textContent = `${service.name} (${service.status})`;
+                    if (service.status === "Habis") {
+                        option.disabled = true; // Disable if "Habis"
+                    }
                     serviceSelect.appendChild(option);
                 });
             }
         });
+
+        serviceSelect.addEventListener('change', () => {
+            const selectedService = serviceSelect.value;
+            const selectedCategory = categorySelect.value;
+            let currentServiceData = null;
+
+            if (selectedCategory && selectedService && allServicesData[selectedCategory]) {
+                currentServiceData = allServicesData[selectedCategory].find(s => s.name === selectedService);
+            }
+
+            if (currentServiceData) {
+                quantityInput.min = currentServiceData.min;
+                quantityInput.max = currentServiceData.max;
+                quantityInput.placeholder = `Min: ${currentServiceData.min} - Max: ${currentServiceData.max}`;
+                quantityInput.disabled = (currentServiceData.status === "Habis"); // Disable quantity if service is "Habis"
+                calculateCharge(); // Recalculate charge when service changes
+            } else {
+                quantityInput.min = 10;
+                quantityInput.max = 10000;
+                quantityInput.placeholder = 'Min: 10 - Max: 10000';
+                quantityInput.disabled = false;
+                chargeDisplay.textContent = 'Charge: Rp 0';
+            }
+        });
+
+        quantityInput.addEventListener('input', calculateCharge);
+
+        function calculateCharge() {
+            const selectedCategory = categorySelect.value;
+            const selectedService = serviceSelect.value;
+            const quantity = parseInt(quantityInput.value);
+            let charge = 0;
+
+            if (selectedCategory && selectedService && quantity && allServicesData[selectedCategory]) {
+                const currentServiceData = allServicesData[selectedCategory].find(s => s.name === selectedService);
+
+                if (currentServiceData && currentServiceData.status !== "Habis" && quantity >= currentServiceData.min && quantity <= currentServiceData.max) {
+                    // Calculate charge based on the base quantity and price
+                    charge = (quantity / currentServiceData.base_qty) * currentServiceData.price;
+                }
+            }
+            chargeDisplay.textContent = `Charge: Rp ${charge.toLocaleString('id-ID')}`;
+        }
 
         function sendToWhatsApp() {
             const selectedCategory = categorySelect.value;
@@ -238,11 +361,24 @@ Kami sangat senang Anda bergabung dengan keluarga besar KingStore. Di sini, Anda
                 return;
             }
 
+            const currentServiceData = allServicesData[selectedCategory].find(s => s.name === selectedService);
+            if (currentServiceData && currentServiceData.status === "Habis") {
+                 alert('Layanan ini sedang habis. Mohon pilih layanan lain.');
+                 return;
+            }
+
+            if (quantity < currentServiceData.min || quantity > currentServiceData.max) {
+                 alert(`Jumlah harus antara ${currentServiceData.min} dan ${currentServiceData.max} untuk layanan ini.`);
+                 return;
+            }
+
+
             const message = `Halo, saya ingin memesan layanan berikut:\n\n` +
                             `Kategori: ${selectedCategory}\n` +
                             `Layanan: ${selectedService}\n` +
                             `Link: ${link}\n` +
-                            `Jumlah: ${quantity}\n\n` +
+                            `Jumlah: ${quantity}\n` +
+                            `Charge Perkiraan: ${chargeDisplay.textContent}\n\n` +
                             `Terima kasih.`;
 
             // Encode the message for URL
