@@ -1,1 +1,56 @@
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: 20px auto;
+    border-radius: 50%;
+}
 
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: flex-start;
+    font-family: arial, sans-serif;
+    background-color: aquamarine;
+    padding: 20px;
+    box-sizing: border-box;
+    color: blue;
+    text-align: center;
+}
+
+h1{
+    font-size: 2.2em;
+    margin-bottom: 10px;
+    color: #00796b;
+}
+
+p{
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    max-width: 80%;
+    line-height: 1.5;
+}
+
+.link-button{
+    display: block;
+    width: 80%;
+    max-width: 300px;
+    padding: 12px20px;
+    margin-bottom: 15px;
+    background-color: cornflowerblue;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease,transfrom 0.25 ease;
+    font-size: 1.1em;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.link-button:hover{
+    background-color: #00796b;
+    transform: translateY(-2px);
+}
