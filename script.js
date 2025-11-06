@@ -32,7 +32,7 @@ function sendWhatsAppOrder() {
 
     // Format pesan order
     const message = 
-        'Halo Kak, saya mau order layanan sosmed.' +
+        '.payment | Halo Kak, saya mau order layanan sosmed.' +
         '\n\n*DETAIL PESANAN*' +
         '\nNama: ' + nama +
         '\nPesanan: ' + currentLayanan +
