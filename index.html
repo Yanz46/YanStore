@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRICE LIST SOSMED RESMI</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700;900&display=swap">
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="main-title">
+            PRICE LIST 
+            <span class="small-text">SOSMED 💉</span>
+        </h1>
+        
+        <div class="price-grid">
+            
+            <div class="price-box">
+                <div class="box-header">FOLL INSTAGRAM 📸</div>
+                <div class="list-item" onclick="openOrderModal('100 Followers Instagram', '5.000')">100 FOLLOWERS<span>5.000</span></div>
+                <div class="list-item" onclick="openOrderModal('200 Followers Instagram', '10.000')">200 FOLLOWERS<span>10.000</span></div>
+                <div class="list-item" onclick="openOrderModal('500 Followers Instagram', '25.000')">500 FOLLOWERS<span>25.000</span></div>
+                <div class="list-item" onclick="openOrderModal('1000 Followers Instagram', '35.000')">1000 FOLLOWERS<span>35.000</span></div>
+            </div>
+            
+            <div class="price-box">
+                <div class="box-header">FOLL SHOPEE 🛒</div>
+                <div class="list-item" onclick="openOrderModal('100 Followers Shopee', '2.000')">100 FOLLOWERS<span>2.000</span></div>
+                <div class="list-item" onclick="openOrderModal('200 Followers Shopee', '4.000')">200 FOLLOWERS<span>4.000</span></div>
+                <div class="list-item" onclick="openOrderModal('500 Followers Shopee', '10.000')">500 FOLLOWERS<span>10.000</span></div>
+                <div class="list-item" onclick="openOrderModal('1000 Followers Shopee', '20.000')">1000 FOLLOWERS<span>20.000</span></div>
+            </div>
+            
+            <div class="price-box">
+                <div class="box-header">FOLL TIKTOK (BULE) 🎵</div>
+                <div class="list-item" onclick="openOrderModal('100 Followers TikTok Bule', '5.000')">100 FOLLOWERS<span>5.000</span></div>
+                <div class="list-item" onclick="openOrderModal('200 Followers TikTok Bule', '10.000')">200 FOLLOWERS<span>10.000</span></div>
+                <div class="list-item" onclick="openOrderModal('500 Followers TikTok Bule', '25.000')">500 FOLLOWERS<span>25.000</span></div>
+                <div class="list-item" onclick="openOrderModal('1000 Followers TikTok Bule', '90.000')">1000 FOLLOWERS<span>90.000</span></div>
+            </div>
+
+            <div class="price-box">
+                <div class="box-header">FOLL TIKTOK (INDO) 🎵</div>
+                <div class="list-item" onclick="openOrderModal('100 Followers TikTok Indo', '10.000')">100 FOLLOWERS<span>10.000</span></div>
+                <div class="list-item" onclick="openOrderModal('200 Followers TikTok Indo', '20.000')">200 FOLLOWERS<span>20.000</span></div>
+                <div class="list-item" onclick="openOrderModal('500 Followers TikTok Indo', '50.000')">500 FOLLOWERS<span>50.000</span></div>
+                <div class="list-item" onclick="openOrderModal('1000 Followers TikTok Indo', '30.000')">1000 FOLLOWERS<span>30.000</span></div> 
+            </div>
+            
+            <div class="price-box">
+                <div class="box-header">TIKTOK LIKE ❤️ & SAVE 💾</div>
+                <div class="list-item" onclick="openOrderModal('1000 Like TikTok', '1.000')">1000 LIKE<span>1.000</span></div>
+                <div class="list-item" onclick="openOrderModal('5000 Like TikTok', '5.000')">5000 LIKE<span>5.000</span></div>
+                <div class="list-item" onclick="openOrderModal('1000 Save TikTok', '20.000')">1000 SAVE TIKTOK<span>20.000</span></div> 
+                <div class="list-item" onclick="openOrderModal('100.000 Save Instagram', '10.000')">100K SAVE INSTAGRAM<span>10.000</span></div> 
+            </div>
+
+            <div class="price-box">
+                <div class="box-header">TIKTOK VIEW 👀 & IG VIEW 📷</div>
+                <div class="list-item" onclick="openOrderModal('5.000 View TikTok', '2.000')">5.000 VIEW<span>2.000</span></div>
+                <div class="list-item" onclick="openOrderModal('50.000 View TikTok', '20.000')">50.000 VIEW<span>20.000</span></div>
+                <div class="list-item" onclick="openOrderModal('100.000 View TikTok', '25.000')">100.000 VIEW TIKTOK<span>25.000</span></div> 
+                <div class="list-item" onclick="openOrderModal('100.000 View Instagram', '10.000')">100.000 VIEW INSTAGRAM<span>10.000</span></div> 
+            </div>
+            
+        </div>
+        
+        <p class="footer-note">NDII ❢</p>
+    </div>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeOrderModal()">&times;</span>
+            <h3>Konfirmasi Pesanan</h3>
+            <p style="font-size: 14px;">Anda akan memesan:</p>
+            <p>Layanan: <strong id="modalLayanan"></strong></p>
+            <p>Harga: <strong id="modalHarga"></strong></p>
+            
+            <input type="text" id="inputNama" placeholder="1. Masukkan Nama Anda" required>
+            <input type="text" id="inputLink" placeholder="2. Masukkan Link Profil/Post Tujuan" required>
+            
+            <button onclick="sendWhatsAppOrder()">Kirim Pesanan ke WhatsApp</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
