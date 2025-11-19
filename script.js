@@ -2,7 +2,7 @@
         
 let currentLayanan = '';
 let currentHarga = '';
-const whatsappNumber = '6285124412494'; // Nomor WhatsApp Anda (tanpa tanda +)
+const whatsappNumber = '6283190293490'; // Nomor WhatsApp Anda (tanpa tanda +)
 const modal = document.getElementById('orderModal');
 const customModal = document.getElementById('customOrderModal');
 
