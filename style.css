@@ -1,0 +1,87 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e8eaed;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.download-card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    width: 350px;
+}
+
+.app-icon {
+    width: 70px;
+    margin-bottom: 10px;
+}
+
+h1 { font-size: 22px; color: #333; margin-bottom: 5px; }
+p { color: #666; font-size: 14px; margin-bottom: 20px; }
+
+.btn-download {
+    background-color: #01875f;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    width: 100%;
+    transition: 0.3s;
+}
+
+.btn-download:hover {
+    background-color: #006b4b;
+}
+
+/* Loading Bar */
+#loading-container {
+    margin-top: 20px;
+    background: #eee;
+    border-radius: 10px;
+    height: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+#progress-bar {
+    background: #01875f;
+    height: 100%;
+    width: 0%;
+    transition: width 0.2s;
+}
+
+#loading-text {
+    margin-top: 25px;
+    font-weight: bold;
+    color: #01875f;
+}
+
+/* Jumpscare Overlay */
+#jumpscare-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    z-index: 9999;
+}
+
+#scaryVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

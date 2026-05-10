@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Official APK</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="download-card" id="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/226/226770.png" alt="App Icon" class="app-icon">
+        <h1>TickDown</h1>
+        <p>Developer: Yan<br>Ukuran: 5MB</p>
+        
+        <button class="btn-download" id="downloadBtn">Download APK</button>
+        <div id="loading-container" class="hidden">
+            <div id="progress-bar"></div>
+            <p id="loading-text">Menyiapkan file... 0%</p>
+        </div>
+    </div>
+
+    <div id="jumpscare-overlay" class="hidden">
+        <video id="scaryVideo">
+            <source src="p.mp4" type="video/mp4">
+            Browser tidak mendukung video.
+        </video>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
